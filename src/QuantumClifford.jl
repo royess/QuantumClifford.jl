@@ -44,7 +44,8 @@ export @P_str, PauliOperator, ⊗, I, X, Y, Z, permute,
     random_pauli, random_stabilizer, random_destabilizer, random_clifford,
     bell, ghz,
     BadDataStructure,
-    graphstate, graphstate!, graph_gatesequence, graph_gate
+    graphstate, graphstate!, graph_gatesequence, graph_gate,
+    halfclip!
 
 
 const BIG_INT_MINUS_ONE = Ref{BigInt}()
@@ -1887,6 +1888,7 @@ include("./randoms.jl")
 include("./useful_states.jl")
 include("./experimental/Experimental.jl")
 include("./graphs.jl")
+include("./entanglement.jl")
 include("./precompiles.jl")
 
 end #module
