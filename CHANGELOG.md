@@ -1,6 +1,10 @@
 # News
 
-## v0.5.0-dev
+## v0.5.1
+
+- **(fix `#57` `c83f85f`)** - Graph vertex indices and qubit indices in tableaux were mismatched.
+
+## v0.5.0
 
 - **(breaking)** Rename all pre-defined tableaux to have a `t` prefix. e.g., `CNOT`→`tCNOT`, in order to distinguish them from "symbolic" operators like `sCNOT`.
 - **(breaking)** Rename `CliffordId` to `tId1` to match the naming style of `sId1`.
@@ -15,7 +19,7 @@
   - `Reset` is moved out of `NoisyCircuits`.
   - `DenseMeasurement` is renamed `PauliMeasurement` and moved out of `NoisyCircuits`.
   - `DenseGate` is removed (just use any dense CliffordOperator).
-  - `SparseMeasurement` is removed (just use `sMX`, `sMY`, `sMZ`).
+  - `SparseMeasurement` is removed (just use `sMX`, `sMY`, `sMZ`). Due to this we lost the functionality of measuring more than one but less than all qubits.
   - `applyop!` is renamed to `applywstatus!` and simplified.
   - `applyop_branches` is renamed to `applybranches` and simplified.
 

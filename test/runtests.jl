@@ -3,7 +3,6 @@ using QuantumClifford
 using QuantumClifford: stab_looks_good, mixed_stab_looks_good, destab_looks_good, mixed_destab_looks_good
 using QuantumClifford: apply_single_x!, apply_single_y!, apply_single_z!
 using QuantumClifford: mul_left!
-using QuantumClifford: perm_inverse
 using LinearAlgebra: inv
 #using Nemo
 
@@ -39,6 +38,7 @@ doset("allocations")        && include("./test_allocations.jl")
 doset("bitpack")            && include("./test_bitpack.jl")
 doset("graphs")             && include("./test_graphs.jl")
 doset("entanglement")       && include("./test_entanglement.jl")
+doset("hash")               && include("./test_hash.jl")
 doset("doctests")           && include("./doctests.jl")
 
 using Aqua
