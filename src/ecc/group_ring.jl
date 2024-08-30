@@ -49,8 +49,16 @@ Dict{Perm, Nemo.FqFieldElem}(() => 1, (1,2,3) => 1)
 ```
 
 See also: [`PermGroupRingElem`](@ref).
+
+Note:
+
+Lifted product code construction requires the functionallity of group rings, which combines the multiplication of group elements and addition of ring (e.g. GF(2)) elements.
+There seems to be no solution that we can directly use in Julia algebra packages, such as AbstractAlgebra.jl and Nemo.jl.
+
+Logically, as a pure algebric functionality, it should better be upstreamed to AbstractAlgebra.jl.
+[A draft PR](https://github.com/Nemocas/AbstractAlgebra.jl/pull/1781) has been made for this purpose and is waiting for maintainers' response.
 """
-@attributes mutable struct PermGroupRing{T<:RingElement} <: NCRing # TODO if this is only used for ECC, maybe we should consider fixing the base ring to be Z2
+@attributes mutable struct PermGroupRing{T<:RingElement} <: NCRing
     base_ring::Ring
     l::Int
 
@@ -227,9 +235,6 @@ end
 ==(a::PermGroupRingElem{T}, p::Perm) where {T<:RingElement} = length(a.coeffs) == 1 && a.coeffs[p] == base_ring(parent(a))(1)
 
 ==(p::Perm, a::PermGroupRingElem{T}) where {T<:RingElement} = a == p
-
-# TODO Some functionality are expected by ring interfaces but not necessary for ECC construction,
-# including hash, exact division, random generation, promotion rules
 
 # Constructors by overloading the call syntax for parent objects
 
