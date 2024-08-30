@@ -65,9 +65,9 @@ parity_checks_z(c::LPCode) = parity_checks_xz(c)[2]
 
 parity_checks(c::LPCode) = parity_checks(CSS(parity_checks_xz(c)...))
 
-code_n(c::LPCode) = size(c.repr(parent(c.A[1, 1])(0)), 2) * (size(c.A, 2) * size(c.B, 2) + size(c.A, 1) * size(c.B, 1))
+code_n(c::LPCode) = size(c.repr(parent(c.A[1, 1])(0)), 2) * (size(c.A, 2) * size(c.B, 1) + size(c.A, 1) * size(c.B, 2))
 
-code_s(c::LPCode) = size(c.repr(parent(c.A[1, 1])(0)), 1) * (size(c.A, 1) * size(c.B, 2) + size(c.A, 2) * size(c.B, 1))
+code_s(c::LPCode) = size(c.repr(parent(c.A[1, 1])(0)), 1) * (size(c.A, 1) * size(c.B, 1) + size(c.A, 2) * size(c.B, 2))
 
 """
 Two-block group algebra (2GBA) codes.

@@ -18,6 +18,7 @@ random_circuit_code_args = vcat(
 )
 
 # test codes LP04 and LP118 are from https://arxiv.org/pdf/2111.07029
+# TODO benchmarking them in wiki
 B04 = Dict(
     7 => [0 0 0 0; 0 1 2 5; 0 6 3 1],
     9 => [0 0 0 0; 0 1 6 7; 0 4 5 2],
@@ -33,7 +34,6 @@ B118 = Dict(
 
 LP04 = [LPCode(base_matrix, l .- base_matrix', l) for (l, base_matrix) in B04]
 LP118 = [LPCode(base_matrix, l .- base_matrix', l) for (l, base_matrix) in B118]
-# benchmarking wiki
 
 # generalized bicyle codes
 
